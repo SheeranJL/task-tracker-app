@@ -15,7 +15,7 @@ const ToDoSection = () => {
       </div>
 
       <div className='each-to-do-container'>
-        test
+        
       </div>
 
     </div>

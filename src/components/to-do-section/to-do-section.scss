@@ -1,0 +1,29 @@
+.to-do-section-container {
+
+
+  .navigation {
+    margin-left: 10%;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .all {
+      margin-left: auto;
+    }
+
+    .priority {
+      margin-right: 3%;
+    }
+
+    span {
+      padding: 10px;
+      font-size: 20px;
+      margin-right: 10px;
+    }
+  }
+
+  .each-to-do-container {
+    background-color: white;
+  }
+}

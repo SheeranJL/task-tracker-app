@@ -1,0 +1,33 @@
+.homepage-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    border-right: 1px solid black;
+  }
+
+  .main-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .header {
+      border-bottom: 1px solid black;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .add-task-button {
+      margin-top: 200px;
+      position: sticky;
+      width: 10%;
+      margin-top: 15px;
+    }
+  }
+
+
+}

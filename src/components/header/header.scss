@@ -1,0 +1,14 @@
+.header-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  padding-left: 0;
+  border-radius: 5%;
+
+  li {
+    text-decoration: none;
+    list-style: none;
+
+  }
+}

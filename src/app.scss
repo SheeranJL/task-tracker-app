@@ -1,0 +1,24 @@
+.app-container {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 10%;
+  width: 1000px;
+  height: 800px;
+  background-color: white;
+  border-radius: 5%;
+
+  .r-s-profile {
+    width: 20%;
+    height: 600px;
+    border: 1px solid black;
+  }
+
+  .h-p-header {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    background-color: green;
+  }
+}

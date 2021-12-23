@@ -6,8 +6,8 @@ const Header = () => {
 
   return (
     <ul className='header-container'>
-      <li>TODOS</li>
-      <li>LOGIN</li>  
+      <Link to='/'>TODOS</Link>
+      <Link to='/login' >LOGIN</Link>
     </ul>
   )
 }

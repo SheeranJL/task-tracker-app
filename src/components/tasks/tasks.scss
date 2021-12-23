@@ -1,0 +1,54 @@
+.task-container {
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+
+  .task-options {
+    display: flex;
+    width: 15%;
+    margin-left: 5%;
+    justify-content: space-around;
+
+    .task-button {
+      border: 1px solid black;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      text-align: center;
+      align-self: center;
+      cursor: pointer;
+
+      &:hover {
+        background-color: grey;
+      }
+    }
+
+    .active, {
+      background: green;
+      color: white;
+      transition: 0.5s;
+    }
+
+    .priority-banner {
+      width: 15px;
+      height: 40px;
+      align-self: center;
+      margin-right: 5px;
+    }
+  }
+
+  .task-name-and-time {
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+
+    .task-title {
+      font-weight: bold;
+      font-size: 20px;
+      text-align: left;
+    }
+
+  }
+}

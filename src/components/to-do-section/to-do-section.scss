@@ -8,6 +8,15 @@
     justify-content: space-around;
     align-items: center;
 
+    span {
+      cursor: pointer;
+    }
+
+    .selected-option {
+      background-color: green;
+      color: white;
+    }
+
     .all {
       margin-left: auto;
     }

@@ -1,4 +1,5 @@
 import React, {useContext, useState} from 'react';
+import {appContext} from '../../context/context.js';
 import './homepage.scss';
 
 
@@ -11,8 +12,8 @@ import Modal from '../modal/modal.js'
 
 const HomePage = () => {
 
-  const [toggleModal, setToggleModal] = useState(false);
 
+  const {actions, data} = useContext(appContext);
 
   return (
     <div className='homepage-container'>
@@ -25,14 +26,13 @@ const HomePage = () => {
           </div>
 
           {
-            toggleModal
-            ? <Modal toggleModal={setToggleModal}/>
+            data.toggleModal
+            ? <Modal toggleModal={actions.setToggleModal}/>
             : null
           }
 
           <ToDoSection />
-
-          <button className='add-task-button' onClick={() => setToggleModal(!toggleModal)}>Add task</button>
+          <button className='add-task-button' onClick={() => actions.setToggleModal(!data.toggleModal)}>Add task</button>
 
 
       </div>

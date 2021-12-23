@@ -4,39 +4,81 @@ import './modal.scss';
 
 const Modal = ({toggleModal}) => {
 
-  const {actions} = useContext(appContext);
-  const [query, setQuery] = useState('');
-  const [priority, setPriority] = useState(null)
-  const [additionalNotes, setAdditionalNotes] = useState(null)
-
-
+  const {actions: {setQuery, addEditedToState, setPriority, setAdditionalNotes, addNewToDo, setEdit, setEditTask, setTodo, setToggleModal}, data: {query, priority, additionalNotes, edit, todo}} = useContext(appContext)
 
   const handleSubmit = (e) => {
+
     e.preventDefault()
 
-    if (query === '' || priority === null) {
-      alert('Please enter a to-do and a priority level')
-      return
+    if (!edit) {
+      if (query === '' || priority === null) {
+        alert('Please enter a to-do and a priority level')
+        return
+      }
+
+      let date = new Date();
+      let minute = date.getMinutes();
+      let hour = date.getHours();
+      let seconds = date.getSeconds();
+      let day = date.getDate();
+      let month = date.getMonth();
+      let year = date.getYear();
+
+      let id = ''
+      const characters = 'ABCDEFGHIJKLMNOPQUSTUVWXYZ123456789';
+      for (let i = 0; i < 12; i++) {
+        id += characters.charAt(Math.floor(Math.random() * 36 ));
+      };
+
+      let timeCreated = {
+        timeCreated : `${day}/${month}/${year - 100} ${hour}:${minute}:${seconds}`
+      };
+
+      let item = {
+        query,
+        priority,
+        additionalNotes,
+        timeCreated,
+        id,
+        done: false,
+      }
+
+      addNewToDo(item);
+      toggleModal(false);
+      setQuery('');
+      setPriority(null);
+      setAdditionalNotes(null);
+    } else {
+
+      let item = {
+        query,
+        priority,
+        additionalNotes,
+        edit,
+        done: false,
+      }
+
+      const updatedItem = setEditTask(todo, edit, item);
+      setTodo(updatedItem)
+      setToggleModal(false)
+
     }
 
-    let item = {
-      query,
-      priority,
-      additionalNotes
-    }
+  }
 
-    actions.addNewToDo(item);
+
+  const handleCloseModal = () => {
     toggleModal(false);
     setQuery('');
     setPriority(null);
-    setAdditionalNotes(null);
-
+    setAdditionalNotes('');
+    setEdit(null)
   }
 
 
   return (
     <div className='modal'>
-      <button className='close-button' onClick={() => toggleModal(false)}>X</button>
+      <button className='close-button' onClick={() => handleCloseModal()}>X</button>
 
       <form onSubmit={handleSubmit}>
 

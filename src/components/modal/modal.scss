@@ -68,25 +68,34 @@
       text-align: center;
 
       .red-priority {
-        background-color: red;
+        background-color: rgba(255, 0, 0, 0.2);
         height: 30px;
         margin-top: 5px;
         cursor: pointer;
-
+      }
+      .red-selected {
+        background-color: rgba(255, 0, 0, 1);
       }
 
       .orange-priority {
-        background-color: orange;
+        background-color: rgba(255, 127, 0, 0.2);
         height: 30px;
         margin-top: 5px;
         cursor: pointer;
       }
 
+      .orange-selected {
+        background-color: rgba(255, 127, 0, 1);
+      }
+
       .green-priority {
-        background-color: green;
+        background-color: rgba(0, 255, 0, 0.2);
         height: 30px;
         margin-top: 5px;
         cursor: pointer;
+      }
+      .green-selected {
+        background-color: rgba(0, 255, 0, 1);
       }
     }
   }

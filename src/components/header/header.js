@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {appContext} from '../../context/context.js';
+import {auth} from '../../firebase/firebase.js';
 import {Link} from 'react-router-dom';
 import './header.scss';
 
 const Header = () => {
 
+  const {data} = useContext(appContext);
+
   return (
     <ul className='header-container'>
       <Link to='/'>TODOS</Link>
-      <Link to='/login' >LOGIN</Link>
+      {
+        data.currentUser
+        ? <div onClick={() => auth.signOut()}>Logout</div>
+        : <Link to='/login' >LOGIN</Link>
+      }
+
     </ul>
   )
 }

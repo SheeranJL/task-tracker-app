@@ -13,8 +13,12 @@
     }
 
     .selected-option {
-      background-color: green;
+      background-color: rgba(123, 182, 255);
       color: white;
+
+      &:hover {
+        background-color: rgba(123, 182, 255, 0.6);
+      }
     }
 
     .all {
@@ -30,9 +34,30 @@
       font-size: 20px;
       margin-right: 10px;
     }
+
+    .add-task-button {
+      background-color: rgba(123, 182, 255);
+      border: none;
+      width: 200px;
+      height: 48px;
+      cursor: pointer;
+      font-size: 18px;
+
+
+      &:hover {
+        background-color: rgba(123, 182, 255, 0.6);
+        color: white;
+      }
+    }
   }
 
   .each-to-do-container {
     background-color: white;
+
+    .task-section-desc {
+      color: grey;
+      text-align: center;
+      margin-top: 25%;
+    }
   }
 }

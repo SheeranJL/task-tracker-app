@@ -2,8 +2,8 @@ import React from 'react';
 import './login-signup.scss';
 import Header from '../header/header.js'
 
-import Login from './login/login.js'
-
+import Login from './login/login.js';
+import SignUp from './signup/signup.js';
 
 const LoginAndSignup = () => {
 
@@ -18,7 +18,7 @@ const LoginAndSignup = () => {
         </div>
 
         <div className='sign-up-container'>
-          signup here
+          <SignUp />
         </div>
       </div>
 

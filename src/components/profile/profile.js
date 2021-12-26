@@ -4,7 +4,7 @@ import './profile.scss';
 
 const Profile = () => {
 
-  const {data:{todo}} = useContext(appContext);
+  const {data:{todo}, data: {currentUser}} = useContext(appContext);
 
   let completedCount;
   let priorityCount;
@@ -30,15 +30,14 @@ const Profile = () => {
   }
 
 
-  console.log(completedCount)
+  console.log(currentUser)
 
   return (
     <div className='profile-container'>
 
       <div className='person-info'>
-        <img src='https://randomuser.me/api/portraits/women/12.jpg' />
+        <img src='https://p.kindpng.com/picc/s/150-1503922_user-png-grey-transparent-png.png'  />
         <span>Test Name</span>
-        <span>randomemail@email.com</span>
       </div>
 
       <div className='stats'>

@@ -32,9 +32,6 @@ const HomePage = () => {
           }
 
           <ToDoSection />
-          <button className='add-task-button' onClick={() => actions.setToggleModal(!data.toggleModal)}>Add task</button>
-
-
       </div>
     </div>
   )

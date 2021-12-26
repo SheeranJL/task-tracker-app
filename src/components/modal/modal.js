@@ -4,7 +4,8 @@ import './modal.scss';
 
 const Modal = ({toggleModal}) => {
 
-  const {actions: {setQuery, addEditedToState, setPriority, setAdditionalNotes, addNewToDo, setEdit, setEditTask, setTodo, setToggleModal}, data: {query, priority, additionalNotes, edit, todo}} = useContext(appContext)
+  const {actions: {setQuery, addEditedToState, setPriority, setSelectedPriority, setAdditionalNotes, addNewToDo, setEdit, setEditTask, setTodo, setToggleModal}, data: {query, priority, additionalNotes, selectedPriority, edit, todo}} = useContext(appContext)
+
 
   const handleSubmit = (e) => {
 
@@ -49,7 +50,6 @@ const Modal = ({toggleModal}) => {
       setPriority(null);
       setAdditionalNotes(null);
     } else {
-
       let item = {
         query,
         priority,
@@ -57,15 +57,11 @@ const Modal = ({toggleModal}) => {
         edit,
         done: false,
       }
-
       const updatedItem = setEditTask(todo, edit, item);
       setTodo(updatedItem)
       setToggleModal(false)
-
     }
-
   }
-
 
   const handleCloseModal = () => {
     toggleModal(false);
@@ -73,6 +69,12 @@ const Modal = ({toggleModal}) => {
     setPriority(null);
     setAdditionalNotes('');
     setEdit(null)
+  }
+
+  const handleSetPriority = (e) => {
+    console.log(e.target)
+    setSelectedPriority(e.target.innerHTML)
+    setPriority(e.target.innerHTML)
   }
 
 
@@ -90,9 +92,9 @@ const Modal = ({toggleModal}) => {
 
 
           <div className='priority'>
-            <div onClick={(e) => setPriority(e.target.innerHTML)} className='red-priority'>High</div>
-            <div onClick={(e) => setPriority(e.target.innerHTML)} className='orange-priority'>Medium</div>
-            <div onClick={(e) => setPriority(e.target.innerHTML)} className='green-priority'>Low</div>
+            <div onClick={handleSetPriority} className={selectedPriority === 'High' ? 'red-priority red-selected' : 'red-priority'}>High</div>
+            <div onClick={handleSetPriority} className={selectedPriority === 'Medium' ? 'orange-priority orange-selected' : 'orange-priority'}>Medium</div>
+            <div onClick={handleSetPriority} className={selectedPriority === 'Low' ? 'green-priority green-selected' : 'green-priority'}>Low</div>
           </div>
 
         </div>

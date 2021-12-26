@@ -1,0 +1,32 @@
+.sign-up-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+
+
+  .sign-up-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    label {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    input {
+      width: 200px;
+      margin-top: 10px;
+      align-self: center;
+    }
+
+    .password {
+      margin-top: 30px;
+    }
+  }
+
+  h2 {
+    text-align: center;
+  }
+  
+}

@@ -6,7 +6,7 @@ import Task from '../tasks/tasks.js';
 
 const ToDoSection = () => {
 
-  const {data: {todo} } = useContext(appContext);
+  const {data: {todo, toggleModal}, actions } = useContext(appContext);
 
   const [filter, setFilter] = useState(todo)
   const [filterQuery, setFilterQuery] = useState('ALL')
@@ -46,7 +46,7 @@ const ToDoSection = () => {
     <div className='to-do-section-container'>
 
       <div className='navigation'>
-        <span>Work</span>
+        <button className='add-task-button' onClick={() => actions.setToggleModal(!toggleModal)}>NEW TASK</button>
         <span onClick={handleChangeCategory} className={filterQuery === 'ALL' ? 'selected-option all' : 'all'}>ALL</span>
         <span onClick={handleChangeCategory} className={filterQuery === 'ACTIVE' ? 'selected-option active' : 'active'}>ACTIVE</span>
         <span onClick={handleChangeCategory} className={filterQuery === 'COMPLETED' ? 'selected-option completed' : 'completed'}>COMPLETED</span>
@@ -57,7 +57,7 @@ const ToDoSection = () => {
       {
         filter
         ? filter.map((task, index) => <Task task={task} key={index}/>)
-        : <h1> Tasks you add will appear here </h1>
+        : <h1 className='task-section-desc'> Tasks you add will appear here </h1>
       }
       </div>
 

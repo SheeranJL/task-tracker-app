@@ -1,4 +1,4 @@
-import React, {createContext, useState, useEffect} from 'react';
+import React, {createContext, useState, useEffect, useRef} from 'react';
 
 export const appContext = createContext();
 
@@ -11,9 +11,33 @@ export const Provider = (props) => {
   const [toggleModal, setToggleModal] = useState(false);
   const [query, setQuery] = useState('');
   const [priority, setPriority] = useState(null)
+  const [selectedPriority, setSelectedPriority] = useState(null);
   const [additionalNotes, setAdditionalNotes] = useState('')
   const [edit, setEdit] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
 
+  const isFirstRender = useRef(true)
+
+  useEffect(() => {
+
+    if (isFirstRender.current) {
+      const dataFromLocalStorage = localStorage.getItem('stateData');
+      if (dataFromLocalStorage) {
+        const appData = JSON.parse(dataFromLocalStorage);
+        setTodo(appData);
+      }
+      isFirstRender.current = false;
+    }
+
+    const saveToLocalStorage = () => {
+      if (localStorage) {
+        console.log('hello')
+        localStorage.setItem('stateData', JSON.stringify(todo))
+      }
+    }
+    saveToLocalStorage()
+  }, [todo])
+  
 
   const addNewToDo = (item) => {
     if (todo) {
@@ -22,6 +46,7 @@ export const Provider = (props) => {
       setTodo([item]);
     }
   }
+
 
 
   const setDoneStatus = (items, itemToToggle) => {
@@ -43,6 +68,12 @@ export const Provider = (props) => {
      )
   }
 
+  const setDeleteTask = (task) => {
+    console.log(task)
+    const filtered = todo.filter(a => a.id !== task.id);
+    setTodo(filtered);
+  }
+
 
 
   return (
@@ -53,7 +84,9 @@ export const Provider = (props) => {
         priority,
         additionalNotes,
         toggleModal,
-        edit
+        edit,
+        currentUser,
+        selectedPriority
       },
       actions: {
         addNewToDo,
@@ -65,6 +98,9 @@ export const Provider = (props) => {
         setToggleModal,
         setEdit,
         setEditTask,
+        setCurrentUser,
+        setDeleteTask,
+        setSelectedPriority
       }
     }}>
       {props.children}

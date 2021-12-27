@@ -1,10 +1,11 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {appContext} from '../../context/context.js';
 import './profile.scss';
 
 const Profile = () => {
 
   const {data:{todo}, data: {currentUser}} = useContext(appContext);
+  const [loading, setLoading] = useState(true)
 
   let completedCount;
   let priorityCount;
@@ -29,29 +30,43 @@ const Profile = () => {
     }, 0)
   }
 
+  setTimeout(() => {
+    setLoading(false)
+  }, 1000)
 
   return (
     <div className='profile-container'>
 
-      <div className='person-info'>
-        <img src='https://p.kindpng.com/picc/s/150-1503922_user-png-grey-transparent-png.png'  />
-        <span>Test Name</span>
-      </div>
+      {
+        loading !== true && currentUser
+        ? (
+          <div className='person-info'>
+              <img src={currentUser !== null ? currentUser.userData.photo : 'https://p.kindpng.com/picc/s/150-1503922_user-png-grey-transparent-png.png'}  />
+              <span>{`Welcome ${currentUser.userData.displayName}`}</span>
+          </div>
+        ) : (
+          <div className='person-info'>
+              <img src='https://p.kindpng.com/picc/s/150-1503922_user-png-grey-transparent-png.png' />
+              <span>Log in to save data</span>
+          </div>
+        )
+      }
+
 
       <div className='stats'>
 
         <div className='completed-info'>
-          <span>{todo ? todo.length : 0}</span>
+          <span className='info-stat'>{todo ? todo.length : 0}</span>
           <span>tasks</span>
         </div>
 
         <div className='completed-info'>
-          <span>{ todo ? completedCount : 0}</span>
+          <span className='info-stat'>{ todo ? completedCount : 0}</span>
           <span>completed</span>
         </div>
 
         <div className='completed-info'>
-          <span>{todo ? priorityCount : 0}</span>
+          <span className={ priorityCount > 0 ? 'info-stat priority' : 'info-stat green'}>{todo ? priorityCount : 0}</span>
           <span>Priority</span>
         </div>
 

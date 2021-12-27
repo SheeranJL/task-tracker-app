@@ -1,5 +1,6 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import {appContext} from '../../../context/context.js'
+import {useHistory} from 'react-router-dom';
 import './login.scss';
 import {signInWithGoogle, auth} from '../../../firebase/firebase.js'
 import CustomButton from '../../custom-button/custom-button.js';
@@ -7,9 +8,23 @@ import CustomButton from '../../custom-button/custom-button.js';
 
 const Login = () => {
 
+  const {data} = useContext(appContext);
+  const history = useHistory();
+
+  useEffect(() => {
+
+    if (data.currentUser) {
+      history.push('/')
+    }
+
+  }, [data.currentUser])
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
   }
+
+
 
   return (
     <div className='login-container'>

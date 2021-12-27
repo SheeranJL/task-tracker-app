@@ -47,6 +47,7 @@ const App = () => {
         getDataFromFirestore();
       }
       actions.setCurrentUser(userAuth);
+      console.log('test')
       data.isFirstRender.current = true;
     })
 

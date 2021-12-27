@@ -15,9 +15,12 @@ const HomePage = () => {
 
   const {actions, data} = useContext(appContext);
 
+  console.log(data);
+
   return (
     <div className='homepage-container'>
         <div className='profile-info'>
+          
           <ProfileInfo />
         </div>
       <div className='main-page'>

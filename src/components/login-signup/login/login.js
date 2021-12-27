@@ -8,21 +8,38 @@ import CustomButton from '../../custom-button/custom-button.js';
 
 const Login = () => {
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   const {data} = useContext(appContext);
   const history = useHistory();
 
-  useEffect(() => {
 
+  useEffect(() => {
     if (data.currentUser) {
       history.push('/')
     }
+  }, [data.currentUser]);
 
-  }, [data.currentUser])
+  const handleChange = (e) => {
+    if (e.target.name === 'email') {
+      setEmail(e.target.value);
+    } else {
+      setPassword(e.target.value);
+    }
+  };
 
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-  }
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password)
+      setEmail('');
+      setPassword('');
+    } catch(err) {
+      console.log('error signing in with e/p', err);
+    }
+  };
 
 
 
@@ -31,14 +48,18 @@ const Login = () => {
       <h2>Already have an account?</h2>
 
       <form className='sign-in-form' onSubmit={handleSubmit}>
+
         <label for='username'>Email</label>
-        <input type='email' name='username'/>
+        <input onChange={handleChange} type='email' name='email' value={email}/>
+
         <label className='password' for='password'>Password</label>
-        <input type='password' name='password'/>
+        <input onChange={handleChange} type='password' name='password' value={password}/>
+
         <div className='buttons'>
           <CustomButton> Sign in </CustomButton>
-          <CustomButton onClick={signInWithGoogle}>Google Sign In</CustomButton>
+          <CustomButton onClick={signInWithGoogle} isGoogleSignIn>Google Sign In</CustomButton>
         </div>
+
       </form>
     </div>
   )

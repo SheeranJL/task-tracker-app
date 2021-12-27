@@ -1,0 +1,20 @@
+.custom-button {
+  min-width: 100px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+}
+
+.google-button {
+  background-color: rgba(66, 133, 224);
+
+  &:hover {
+    color: white;
+    background-color: black;
+  }
+}

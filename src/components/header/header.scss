@@ -8,15 +8,20 @@
   font-size: 20px;
   text-decoration: none;
   list-style-type: none;
+  font-weight: bold;
+
 
   li {
     text-decoration: none;
     cursor: pointer;
+    font-weight: bold;
+
   }
 
   .link-style {
     text-decoration: none;
     list-style-type: none;
+    color: black;
   }
 
   .logout-button {

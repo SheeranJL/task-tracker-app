@@ -6,15 +6,21 @@ import './header.scss';
 
 const Header = () => {
 
-  const {data} = useContext(appContext);
+  const {data, actions} = useContext(appContext);
+
+  const handleSignOut = async () => {
+    await auth.signOut();
+    await actions.setTodo(null)
+
+  }
 
   return (
     <ul className='header-container'>
-      <Link to='/'>TODOS</Link>
+      <Link className='link-style' to='/'>TODOS</Link>
       {
         data.currentUser
-        ? <div onClick={() => auth.signOut()}>Logout</div>
-        : <Link to='/login' >LOGIN</Link>
+        ? <li className='logout-button' onClick={handleSignOut}>LOGOUT</li>
+        : <Link className='link-style' to='/login'>LOGIN</Link>
       }
 
     </ul>

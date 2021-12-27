@@ -1,4 +1,5 @@
 import React, {createContext, useState, useEffect, useRef} from 'react';
+import {saveDataToFirestore, onLoginData} from '../firebase/firebase.js';
 
 export const appContext = createContext();
 
@@ -15,29 +16,16 @@ export const Provider = (props) => {
   const [additionalNotes, setAdditionalNotes] = useState('')
   const [edit, setEdit] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
-
   const isFirstRender = useRef(true)
 
   useEffect(() => {
 
-    if (isFirstRender.current) {
-      const dataFromLocalStorage = localStorage.getItem('stateData');
-      if (dataFromLocalStorage) {
-        const appData = JSON.parse(dataFromLocalStorage);
-        setTodo(appData);
-      }
-      isFirstRender.current = false;
+    if (currentUser) {
+      saveDataToFirestore(currentUser.id, todo);
     }
 
-    const saveToLocalStorage = () => {
-      if (localStorage) {
-        console.log('hello')
-        localStorage.setItem('stateData', JSON.stringify(todo))
-      }
-    }
-    saveToLocalStorage()
-  }, [todo])
-  
+  }, [todo, currentUser])
+
 
   const addNewToDo = (item) => {
     if (todo) {
@@ -48,7 +36,6 @@ export const Provider = (props) => {
   }
 
 
-
   const setDoneStatus = (items, itemToToggle) => {
     const existingItem = items.find((a) => a.id === itemToToggle.id);
     return items.map((item) =>
@@ -57,7 +44,6 @@ export const Provider = (props) => {
       : item
     )
   }
-
 
   const setEditTask = (tasks, taskToEdit, details) => {
     const existingItem = tasks.find(task => task.id === taskToEdit);
@@ -75,7 +61,6 @@ export const Provider = (props) => {
   }
 
 
-
   return (
     <appContext.Provider value={{
       data: {
@@ -86,7 +71,8 @@ export const Provider = (props) => {
         toggleModal,
         edit,
         currentUser,
-        selectedPriority
+        selectedPriority,
+        isFirstRender
       },
       actions: {
         addNewToDo,

@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import {appContext} from './context/context.js';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {auth, createUserProfileDocument} from './firebase/firebase.js';
+import {saveDataToFirebase, onLoginData} from './firebase/firebase.js';
 
 import './app.scss'
 
@@ -21,10 +22,9 @@ const App = () => {
     unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         console.log(userAuth)
-        const userRef = await createUserProfileDocument(userAuth);
+        const userRef = await createUserProfileDocument(userAuth, data.todo);
 
         userRef.onSnapshot(snapShot => {
-          console.log(userAuth)
           actions.setCurrentUser({
             id: snapShot.id,
             ...snapShot.data,
@@ -35,10 +35,21 @@ const App = () => {
             }
           });
         });
-      }
 
+        const getDataFromFirestore = async() => {
+          const firestoreData = await onLoginData(userAuth.uid)
+          const response = await firestoreData;
+          console.log(firestoreData)
+          const test = await response.data.map(item => item)
+          await actions.setTodo([...test])
+
+        }
+        getDataFromFirestore();
+      }
       actions.setCurrentUser(userAuth);
+      data.isFirstRender.current = true;
     })
+
   }, [])
 
 

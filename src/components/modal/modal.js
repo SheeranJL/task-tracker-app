@@ -60,6 +60,12 @@ const Modal = ({toggleModal}) => {
       const updatedItem = setEditTask(todo, edit, item);
       setTodo(updatedItem)
       setToggleModal(false)
+      toggleModal(false);
+      setQuery('');
+      setPriority(null);
+      setAdditionalNotes('');
+      setEdit(null);
+      setSelectedPriority(null)
     }
   }
 
@@ -68,11 +74,11 @@ const Modal = ({toggleModal}) => {
     setQuery('');
     setPriority(null);
     setAdditionalNotes('');
-    setEdit(null)
+    setEdit(null);
+    setSelectedPriority(null)
   }
 
   const handleSetPriority = (e) => {
-    console.log(e.target)
     setSelectedPriority(e.target.innerHTML)
     setPriority(e.target.innerHTML)
   }

@@ -10,7 +10,6 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   }
-  console.log(signInWithGoogle)
 
   return (
     <div className='login-container'>

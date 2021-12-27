@@ -1,6 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
+import { getDatabase, ref, set } from "firebase/database";
 
 const config = {
   apiKey: "AIzaSyAnDelUiq0oVhkZVyX4Bi6-uicVwQJX4Z4",
@@ -19,7 +20,6 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   const userRef = firestore.doc(`users/${userAuth.uid}`);
   const collectionRef = firestore.collection('users');
 
-  console.log(userRef)
   const snapShot = await userRef.get();
   const collectionSnapshot = await collectionRef.get();
 
@@ -29,19 +29,62 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
     try {
       await userRef.set({
-        displayName,
-        email,
-        createdAt,
-        ...additionalData
+        user: {
+          displayName,
+          email,
+          createdAt,
+          ...additionalData
+        },
+        data: {
+          additionalData
+        }
       })
     } catch (error) {
       console.log('error occured', error);
     }
   }
-
   return userRef;
+}
+
+
+export const onLoginData = async (userAuth) => {
+
+  const dataRef = await firestore.collection('users').doc(userAuth);
+  const data = await dataRef.get();
+
+  if (!data.exists) {
+    console.log('no doc exists')
+  } else {
+    return data.data()
+  }
 
 }
+
+
+
+export const saveDataToFirestore = async (userAuth, data) => {
+
+  const userRef = firestore.doc(`users/${userAuth}`)
+  const collectionRef = firestore.collection(`users/${userAuth}/data`)
+
+  const userData = firestore.collection('users').doc(userAuth);
+
+
+  try {
+    await userData.update({
+      data
+    })
+  } catch (error) {
+    console.log('error saving data', error)
+  }
+
+
+
+
+}
+
+
+
 
 
 

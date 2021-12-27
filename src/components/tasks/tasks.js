@@ -17,6 +17,8 @@ const Task = ({task}) => {
     actions.setPriority(task.priority);
     actions.setAdditionalNotes(task.additionalNotes);
     actions.setEdit(task.id)
+    actions.setSelectedPriority(task.priority)
+
   }
 
 
@@ -41,7 +43,7 @@ const Task = ({task}) => {
       <div className='task-options'>
         <div className='priority-banner' style={{backgroundColor: setPriorityColor()}} />
         <button className='task-button' onClick={handleDeleteTask}>X</button>
-        <button className='task-button' onClick={() => handleEditTask()}>&#9776;</button>
+        <button className='task-button' onClick={handleEditTask}>&#9776;</button>
         <button onClick={() => handleToggleDone()} className={task.done ? 'task-button active' : 'task-button'}>&#10004;</button>
       </div>
 

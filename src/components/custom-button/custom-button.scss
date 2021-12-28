@@ -3,9 +3,11 @@
   height: 30px;
   border: none;
   cursor: pointer;
+  background-color: black;
+  color: white;
 
   &:hover {
-    background-color: black;
+    background-color: grey;
     color: white;
   }
 }
@@ -15,6 +17,6 @@
 
   &:hover {
     color: white;
-    background-color: black;
+    background-color: rgba(66, 133, 224, 0.8);
   }
 }

@@ -22,6 +22,10 @@
     text-decoration: none;
     list-style-type: none;
     color: black;
+
+    &:hover {
+      color: grey;
+    }
   }
 
   .logout-button {

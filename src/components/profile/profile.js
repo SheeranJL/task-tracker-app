@@ -32,7 +32,7 @@ const Profile = () => {
 
   setTimeout(() => {
     setLoading(false)
-  }, 1000)
+  }, 1200)
 
   return (
     <div className='profile-container'>
@@ -46,7 +46,7 @@ const Profile = () => {
           </div>
         ) : (
           <div className='person-info'>
-              <img src='https://p.kindpng.com/picc/s/150-1503922_user-png-grey-transparent-png.png' />
+              <img src={'https://p.kindpng.com/picc/s/150-1503922_user-png-grey-transparent-png.png' || 'https://p.kindpng.com/picc/s/150-1503922_user-png-grey-transparent-png.png'} />
               <span>Log in to save data</span>
           </div>
         )

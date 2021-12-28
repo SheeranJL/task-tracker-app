@@ -1,6 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {appContext} from '../../context/context.js';
 import './tasks.scss';
+const Sugar = require('sugar');
 
 const Task = ({task}) => {
 
@@ -36,6 +37,13 @@ const Task = ({task}) => {
     actions.setDeleteTask(task)
   }
 
+  function truncateString(string, maxNum) {
+    const length = maxNum;
+    const truncated = string.length > length ? string.slice(0, length - 1) + '...' : string
+    return truncated
+
+  };
+
   return (
 
     <div className='task-container'>
@@ -48,8 +56,11 @@ const Task = ({task}) => {
       </div>
 
       <div className='task-name-and-time'>
-        <span className='task-title'>{task.query}</span>
+        <span className='task-title'>{truncateString(task.query, 23)}</span>
+      </div>
 
+      <div className='additional-notes'>
+        <p>{task.additionalNotes ? truncateString(task.additionalNotes, 35) : 'none'}</p>
       </div>
 
     </div>

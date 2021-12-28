@@ -23,6 +23,8 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   const snapShot = await userRef.get();
   const collectionSnapshot = await collectionRef.get();
 
+  console.log('additional data', additionalData);
+
   if (!snapShot.exists) {
     const {displayName, email} = userAuth;
     console.log(userAuth.displayName)

@@ -42,7 +42,7 @@ const Profile = () => {
         ? (
           <div className='person-info'>
               <img src={currentUser !== null ? currentUser.userData.photo : 'https://p.kindpng.com/picc/s/150-1503922_user-png-grey-transparent-png.png'}  />
-              <span>{`Welcome ${currentUser.userData.displayName}`}</span>
+              <span>Welcome!</span>
           </div>
         ) : (
           <div className='person-info'>

@@ -41,7 +41,6 @@ const Task = ({task}) => {
     const length = maxNum;
     const truncated = string.length > length ? string.slice(0, length - 1) + '...' : string
     return truncated
-
   };
 
   return (
@@ -60,7 +59,7 @@ const Task = ({task}) => {
       </div>
 
       <div className='additional-notes'>
-        <p>{task.additionalNotes ? truncateString(task.additionalNotes, 35) : 'none'}</p>
+        <p>{task.additionalNotes ? truncateString(task.additionalNotes, 35) : null}</p>
       </div>
 
     </div>

@@ -49,9 +49,9 @@ const Task = ({task}) => {
 
       <div className='task-options'>
         <div className='priority-banner' style={{backgroundColor: setPriorityColor()}} />
-        <button className='task-button' onClick={handleDeleteTask}>X</button>
-        <button className='task-button' onClick={handleEditTask}>&#9776;</button>
-        <button onClick={() => handleToggleDone()} className={task.done ? 'task-button active' : 'task-button'}>&#10004;</button>
+        <button className='task-button close-button' onClick={handleDeleteTask}>X</button>
+        <button className='task-button edit-button' onClick={handleEditTask}>&#9776;</button>
+        <button onClick={() => handleToggleDone()} className={task.done ? 'task-button active checked-button' : 'task-button checked-button'}>&#10004;</button>
       </div>
 
       <div className='task-name-and-time'>

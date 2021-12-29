@@ -14,11 +14,11 @@ import LoginAndSignup from './components/login-signup/login-signup.js';
 const App = () => {
 
   const {actions, data} = useContext(appContext);
+  
 
   let unsubscribeFromAuth = null;
 
   useEffect(() => {
-
     unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         console.log(userAuth)
@@ -47,8 +47,8 @@ const App = () => {
         }
         getDataFromFirestore();
       }
+
       actions.setCurrentUser(userAuth);
-      console.log('test')
       data.isFirstRender.current = true;
     })
 
@@ -57,7 +57,7 @@ const App = () => {
 
   return (
     <div className='app-container'>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Route exact path='/' component={HomePage} />
         <Route path='/login' component={LoginAndSignup} />
       </Router>

@@ -18,7 +18,9 @@ export const Provider = (props) => {
   const [currentUser, setCurrentUser] = useState(null);
   const isFirstRender = useRef(true)
 
+
   useEffect(() => {
+
 
     if (currentUser) {
       saveDataToFirestore(currentUser.id, todo);
@@ -55,7 +57,6 @@ export const Provider = (props) => {
   }
 
   const setDeleteTask = (task) => {
-    console.log(task)
     const filtered = todo.filter(a => a.id !== task.id);
     setTodo(filtered);
   }
@@ -72,7 +73,7 @@ export const Provider = (props) => {
         edit,
         currentUser,
         selectedPriority,
-        isFirstRender
+        isFirstRender,
       },
       actions: {
         addNewToDo,
@@ -86,7 +87,7 @@ export const Provider = (props) => {
         setEditTask,
         setCurrentUser,
         setDeleteTask,
-        setSelectedPriority
+        setSelectedPriority,
       }
     }}>
       {props.children}

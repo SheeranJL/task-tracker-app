@@ -79,6 +79,10 @@
         height: 30px;
         margin-top: 5px;
         cursor: pointer;
+
+        &:hover {
+          background-color: rgba(255, 0, 0, 0.5);
+        }
       }
       .red-selected {
         background-color: rgba(255, 0, 0, 1);
@@ -89,6 +93,10 @@
         height: 30px;
         margin-top: 5px;
         cursor: pointer;
+
+        &:hover {
+          background-color: rgba(255, 127, 0, 0.5);
+        }
       }
 
       .orange-selected {
@@ -100,6 +108,11 @@
         height: 30px;
         margin-top: 5px;
         cursor: pointer;
+
+        &:hover {
+          background-color: rgba(0, 255, 0, 0.5);
+        }
+
       }
       .green-selected {
         background-color: rgba(0, 255, 0, 1);
@@ -110,5 +123,13 @@
 
 .modal-submit-button {
   width: 50%;
+  height: 10%;
   margin-left: 5%;
+  background-color: rgba(123, 182, 255, 0.8);
+  cursor: pointer;
+  border: 2px solid rgba(123, 182, 255, 1);
+
+  &:hover {
+    background-color: rgba(123, 182, 255, 0.5);
+  }
 }

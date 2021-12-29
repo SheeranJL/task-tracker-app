@@ -35,4 +35,15 @@
     text-align: center;
   }
 
+  .incorrect {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: red;
+    transition: opacity 2s linear;
+  }
+
+  .displayNone {
+    display: none;
+  }
 }

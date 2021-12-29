@@ -10,7 +10,7 @@ const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const [incorrectCred, setIncorrectCred] = useState(false);
   const {data} = useContext(appContext);
   const history = useHistory();
 
@@ -36,11 +36,18 @@ const Login = () => {
       await auth.signInWithEmailAndPassword(email, password)
       setEmail('');
       setPassword('');
+      setIncorrectCred(false);
     } catch(err) {
       console.log('error signing in with e/p', err);
+      setIncorrectCred(true);
     }
   };
 
+  if (incorrectCred) {
+    setTimeout(() => {
+      setIncorrectCred(false);
+    }, 4000)
+  }
 
 
   return (
@@ -49,17 +56,17 @@ const Login = () => {
 
       <form className='sign-in-form' onSubmit={handleSubmit}>
 
-        <label for='username'>Email</label>
+        <label htmlFor='username'>Email</label>
         <input onChange={handleChange} type='email' name='email' value={email}/>
 
-        <label className='password' for='password'>Password</label>
+        <label className='password' htmlFor='password'>Password</label>
         <input onChange={handleChange} type='password' name='password' value={password}/>
 
         <div className='buttons'>
           <CustomButton> Sign in </CustomButton>
-          <CustomButton onClick={signInWithGoogle} isGoogleSignIn>Google Sign In</CustomButton>
+          <CustomButton type='button' onClick={signInWithGoogle} isGoogleSignIn>Google Sign In</CustomButton>
         </div>
-
+        <span className={incorrectCred ? 'incorrect' : 'displayNone'}>Incorrect username or password</span>
       </form>
     </div>
   )

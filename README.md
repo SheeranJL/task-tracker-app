@@ -1,70 +1,22 @@
-# Getting Started with Create React App
+#About this application#
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This simple to-do application will record all of the tasks you enter and save them to your profile when logged in. You can check off each task as you complete them and filter through all of the tasks to view ones that have been completed, still in progress, and those which are high-priority.
 
-## Available Scripts
+#How to use#
 
-In the project directory, you can run:
+It is best you log into the application using your Google account, or registering a new account manually (You can create a fake one for testing only).
 
-### `npm start`
+#Task options#
+Creating a task : To create a new task, click on the 'NEW TASK' button and enter a task name (required), a task priority level (required), and additional notes (optional) within the popup modal.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Modifying a task: To modify an existing task, click on the edit button (middle button with three lines) beside the individual task on the main screen. All of the existing data will be pre-filled, you will simply make edits within the modal and click submit when done. Edits will permanently overwrite existing data for the item in Firebase.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Deleting a task: To delete a task where simply checking off the task as complete is not applicable, click on the 'X' button. Deleting is permanent and will erase the data from Firebase.
 
-### `npm test`
+Completing a task: To mark a task as complete, click on the button with the tick. Completed tasks will show only on the 'ALL', or 'COMPLETED' filter pages.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#Other#
 
-### `npm run build`
+The left hand side of the main page will tell you how many tasks are being tracked, how many tasks are completed, and how many are prioritised. To view each, click on the filter headings on the top section of the 'tasks' page.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you choose to log into the application, all your tasks will be automatically saved and you can log out and back in as you wish to view, update, or create tasks.

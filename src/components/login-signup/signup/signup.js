@@ -50,16 +50,16 @@ const SignUp = () => {
 
       <form className='sign-up-form' onSubmit={handleSubmit}>
 
-        <label for='displayName'>Name</label>
+        <label htmlFor='displayName'>Name</label>
         <input onChange={handleChange} type='text' name='displayName' value={displayName}/>
 
-        <label for='name'>Email</label>
+        <label htmlFor='name'>Email</label>
         <input onChange={handleChange} type='email' name='email' value={email}/>
 
-        <label for='password'>Password</label>
+        <label htmlFor='password'>Password</label>
         <input onChange={handleChange} type='password' name='password' value={password}/>
 
-        <label for='confirmedPassword'>Confirm password</label>
+        <label htmlFor='confirmedPassword'>Confirm password</label>
         <input onChange={handleChange} type='password' name='confirmedPassword' value={confirmedPassword}/>
 
         <CustomButton type='submit' className='sign-up-button'>Sign up!</CustomButton>

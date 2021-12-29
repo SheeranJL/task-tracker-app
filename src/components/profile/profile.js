@@ -4,7 +4,7 @@ import './profile.scss';
 
 const Profile = () => {
 
-  const {data:{todo}, data: {currentUser}} = useContext(appContext);
+  const {data:{todo, currentUser}} = useContext(appContext);
   const [loading, setLoading] = useState(true)
 
   let completedCount;
@@ -30,9 +30,13 @@ const Profile = () => {
     }, 0)
   }
 
+   // if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+   //   setLoading(true);
+   // }
+
   setTimeout(() => {
     setLoading(false)
-  }, 1200)
+  }, 1300)
 
   return (
     <div className='profile-container'>

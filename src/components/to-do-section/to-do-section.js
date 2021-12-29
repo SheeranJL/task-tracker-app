@@ -13,23 +13,23 @@ const ToDoSection = () => {
 
   useEffect(() => {
 
+
     function filteredToDo() {
       let items;
       if (filterQuery === 'ALL') {
         setFilter(todo)
-      } else if (filterQuery === 'ACTIVE') {
+      } else if (filterQuery === 'ACTIVE' && todo) {
         items = todo.filter(item => item.done === false)
         setFilter(items);
-      } else if (filterQuery === 'COMPLETED') {
+      } else if (filterQuery === 'COMPLETED' && todo) {
         items = todo.filter(item => item.done === true)
         setFilter(items);
-      } else if (filterQuery === 'PRIORITY') {
+      } else if (filterQuery === 'PRIORITY' && todo) {
         items = todo.filter(item => item.priority === 'High' && item.done !== true)
         setFilter(items);
       }
     }
     filteredToDo()
-
   }, [filterQuery, todo])
 
   const handleChangeCategory = (e) => {

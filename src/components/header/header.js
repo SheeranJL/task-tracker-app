@@ -15,11 +15,11 @@ const Header = () => {
 
   return (
     <ul className='header-container'>
-      <Link className='link-style' to='/'>TODOS</Link>
+      <Link className='link-style' to='/'>TASKS</Link>
       {
         data.currentUser
         ? <li className='logout-button' onClick={handleSignOut}>LOGOUT</li>
-        : <Link className='link-style' to='/login'>LOGIN</Link>
+        : <Link className='link-style login' to='/login'>LOGIN</Link>
       }
 
     </ul>

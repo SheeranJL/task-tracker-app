@@ -80,10 +80,6 @@ export const saveDataToFirestore = async (userAuth, data) => {
   } catch (error) {
     console.log('error saving data', error)
   }
-
-
-
-
 }
 
 

@@ -63,18 +63,55 @@
     align-content: flex-start;
     text-align: left;
 
+
     .task-title {
       font-weight: bold;
       font-size: 20px;
       text-align: left;
-
     }
+
+
+
   }
 
   .additional-notes {
-    width: 100%;
+    max-width: 100%;
     margin-left: 5%;
     align-self: center;
+
   }
 
 }
+
+// .task-name-and-time::-webkit-scrollbar-track {
+//   padding: 1px 0;
+//   border-radius: 10px;
+// }
+//
+// .task-name-and-time::-webkit-scrollbar {
+//   height: 15px;
+// }
+//
+// .task-name-and-time::-webkit-scrollbar-thumb {
+//   background-color: #818B99;
+//   border: 3px solid transparent;
+//   border-radius: 9px;
+//   background-clip: content-box;
+// }
+//
+//
+// .additional-notes::-webkit-scrollbar-track {
+//   padding: 1px 0;
+//   border-radius: 10px;
+// }
+//
+// .additional-notes::-webkit-scrollbar {
+//   height: 15px;
+// }
+//
+// .additional-notes::-webkit-scrollbar-thumb {
+//   background-color: #818B99;
+//   border: 3px solid transparent;
+//   border-radius: 9px;
+//   background-clip: content-box;
+// }

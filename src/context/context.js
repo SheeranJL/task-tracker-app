@@ -19,14 +19,12 @@ export const Provider = (props) => {
   const isFirstRender = useRef(true)
 
 
+  //This code will execute when there's a change to the todo state and will execute the if statement to store data to firestore//
   useEffect(() => {
-
-
     if (currentUser) {
       saveDataToFirestore(currentUser.id, todo);
     }
-
-  }, [todo, currentUser])
+  }, [todo])
 
 
   const addNewToDo = (item) => {

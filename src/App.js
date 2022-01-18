@@ -14,7 +14,7 @@ import LoginAndSignup from './components/login-signup/login-signup.js';
 const App = () => {
 
   const {actions, data} = useContext(appContext);
-  
+
 
   let unsubscribeFromAuth = null;
 
@@ -24,32 +24,32 @@ const App = () => {
         console.log(userAuth)
         const userRef = await createUserProfileDocument(userAuth, data.todo);
 
-        userRef.onSnapshot(snapShot => {
-          console.log(snapShot.data)
-          actions.setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data,
-            userData: {
-              displayName: userAuth.multiFactor.user.displayName,
-              email: userAuth.multiFactor.user.email,
-              photo: userAuth.multiFactor.user.photoURL,
-            }
+        if (data.isFirstRender) {
+          userRef.onSnapshot(snapShot => {
+            console.log(snapShot.data)
+            actions.setCurrentUser({
+              id: snapShot.id,
+              ...snapShot.data,
+              userData: {
+                displayName: userAuth.multiFactor.user.displayName,
+                email: userAuth.multiFactor.user.email,
+                photo: userAuth.multiFactor.user.photoURL,
+              }
+            });
           });
-        });
+        }
 
         const getDataFromFirestore = async() => {
           const firestoreData = await onLoginData(userAuth.uid)
           const response = await firestoreData;
-          console.log(firestoreData)
           const test = await response.data.map(item => item)
           await actions.setTodo([...test])
-
         }
         getDataFromFirestore();
       }
 
-      actions.setCurrentUser(userAuth);
-      data.isFirstRender.current = true;
+      actions.setCurrentUser();
+      data.isFirstRender.current = false;
     })
 
   }, [])

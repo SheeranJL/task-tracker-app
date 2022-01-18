@@ -7,6 +7,7 @@ const Profile = () => {
   const {data:{todo, currentUser}} = useContext(appContext);
   const [loading, setLoading] = useState(true)
 
+
   let completedCount;
   let priorityCount;
 
@@ -34,23 +35,22 @@ const Profile = () => {
    //   setLoading(true);
    // }
 
-  setTimeout(() => {
-    setLoading(false)
-  }, 1300)
+
+  console.log('testtttt', currentUser)
 
   return (
     <div className='profile-container'>
 
       {
-        loading !== true && currentUser
+        currentUser
         ? (
           <div className='person-info'>
-              <img src={currentUser !== null ? currentUser.userData.photo : 'https://p.kindpng.com/picc/s/150-1503922_user-png-grey-transparent-png.png'}  />
+              <img src={currentUser.userData.photo} />
               <span>Welcome!</span>
           </div>
         ) : (
           <div className='person-info'>
-              <img src={'https://p.kindpng.com/picc/s/150-1503922_user-png-grey-transparent-png.png' || 'https://p.kindpng.com/picc/s/150-1503922_user-png-grey-transparent-png.png'} />
+              <img src={'https://www.seekpng.com/png/detail/143-1435868_headshot-silhouette-person-placeholder.png' || 'https://p.kindpng.com/picc/s/150-1503922_user-png-grey-transparent-png.png'} />
               <span>Log in to save data</span>
           </div>
         )

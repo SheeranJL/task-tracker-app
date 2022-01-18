@@ -17,6 +17,8 @@ const LoginAndSignup = () => {
           <Login />
         </div>
 
+        <div className='division'/>
+
         <div className='sign-up-container'>
           <SignUp />
         </div>

@@ -40,7 +40,7 @@ const Task = ({task}) => {
   function truncateString(string, maxNum) {
     const length = maxNum;
     const truncated = string.length > length ? string.slice(0, length - 1) + '...' : string
-    return truncated
+    return truncated;
   };
 
   return (
@@ -55,11 +55,11 @@ const Task = ({task}) => {
       </div>
 
       <div className='task-name-and-time'>
-        <span className='task-title'>{truncateString(task.query, 23)}</span>
+        <span className='task-title'>{truncateString(task.query, 15)}</span>
       </div>
 
       <div className='additional-notes'>
-        <p>{task.additionalNotes ? truncateString(task.additionalNotes, 35) : null}</p>
+        <p>{task.additionalNotes ? truncateString(task.additionalNotes, 30) : null}</p>
       </div>
 
     </div>

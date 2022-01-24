@@ -10,7 +10,7 @@ const Header = () => {
 
   const handleSignOut = async () => {
     await auth.signOut();
-    await actions.setTodo(null)
+    await actions.setTodo([])
   }
 
   return (

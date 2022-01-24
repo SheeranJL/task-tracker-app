@@ -6,7 +6,7 @@ export const appContext = createContext();
 export const Provider = (props) => {
 
   //global ToDo state//
-  const [todo, setTodo] = useState(null);
+  const [todo, setTodo] = useState([]);
 
   //Modal State//
   const [toggleModal, setToggleModal] = useState(false);

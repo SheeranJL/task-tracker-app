@@ -4,7 +4,6 @@
   width: 100%;
   justify-content: space-around;
   padding-left: 0;
-  border-radius: 5%;
   font-size: 20px;
   text-decoration: none;
   list-style-type: none;
@@ -16,23 +15,43 @@
     cursor: pointer;
     font-weight: bold;
 
+
   }
 
   .link-style {
+    display: flex;
+    text-align: center;
+    justify-content: center;
     text-decoration: none;
     list-style-type: none;
     color: black;
+    background-color: rgba(118, 132, 214, 0.8);
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
+    color: darkblue;
+
+    a {
+      text-align: center;
+    }
 
     &:hover {
-      color: grey;
+      color: white;
     }
   }
 
   .logout-button {
     color: rgba(255, 0, 0);
+    width: 100px;
+    height: 30px;
+    background-color: rgba(118, 132, 214, 0.8);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    
 
     &:hover {
-      color: rgba(255, 0, 0, 0.5);
+      color: white;
     }
   }
 }

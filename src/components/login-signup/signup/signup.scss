@@ -12,12 +12,16 @@
     label {
       text-align: center;
       margin-top: 10px;
+      font-weight: bold;
     }
 
     input {
       width: 200px;
       margin-top: 10px;
       align-self: center;
+      border-radius: 3px;
+      border: none;
+      height: 30px;
     }
 
     .password {

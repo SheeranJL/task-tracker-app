@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import {appContext} from '../../context/context.js';
 import './profile.scss';
 
@@ -6,10 +6,17 @@ const Profile = () => {
 
   const {data:{todo, currentUser}} = useContext(appContext);
   const [loading, setLoading] = useState(true)
-
+  const [profilePic, setProfilePic] = useState(null)
 
   let completedCount;
   let priorityCount;
+
+  useEffect(() => {
+    if (currentUser) {
+      setProfilePic(currentUser.userData.photo)
+    }
+
+  }, [currentUser])
 
   if (todo) {
     completedCount = todo.reduce((total, current) => {
@@ -36,8 +43,6 @@ const Profile = () => {
    // }
 
 
-  console.log('testtttt', currentUser)
-
   return (
     <div className='profile-container'>
 
@@ -45,8 +50,8 @@ const Profile = () => {
         currentUser
         ? (
           <div className='person-info'>
-              <img src={currentUser.userData.photo} />
-              <span>Welcome!</span>
+              <img src={profilePic || 'https://www.seekpng.com/png/detail/143-1435868_headshot-silhouette-person-placeholder.png'} />
+              <span>Welcome {currentUser.userData.displayName}</span>
           </div>
         ) : (
           <div className='person-info'>

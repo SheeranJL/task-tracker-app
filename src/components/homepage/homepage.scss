@@ -13,7 +13,8 @@
 
   .main-page {
     width: 100%;
-    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 
@@ -21,7 +22,8 @@
       border-bottom: 1px solid black;
       display: flex;
       flex-direction: row;
-      height: 10%;
+      background-color: rgba(118, 132, 214, 0.5);
+
     }
 
     .to-do-section-container {

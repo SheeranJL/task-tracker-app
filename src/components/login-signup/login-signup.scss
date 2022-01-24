@@ -3,11 +3,13 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: rgba(118, 132, 214, 0.5);
 
   .auth-methods-container {
     display: flex;
     justify-content: space-around;
     height: 100%;
+
 
     .sign-in-container {
       width: 45%;
@@ -21,6 +23,7 @@
 
     .sign-up-container {
       width: 45%;
+      margin-top: 5%;
     }
   }
 

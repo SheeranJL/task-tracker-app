@@ -37,6 +37,7 @@ const ToDoSection = () => {
     setFilterQuery(e.target.innerHTML)
   }
 
+  console.log(todo.length)
 
   return (
     <div className='todo-section-container'>
@@ -51,11 +52,33 @@ const ToDoSection = () => {
         </div>
       </div>
 
+      {
+        todo.length
+        ? (
+          <div className='summary'>
+            <span className='priority-summary'>Priority and Options</span>
+            <span className='summary-name'>Task name</span>
+            <span className='summary-notes'>Comments</span>
+          </div>
+        )
+        : null
+      }
+
+
       <div className='each-to-do-container'>
       {
         filter
         ? filter.map((task, index) => <Task task={task} key={index}/>)
-        : <h1 className='task-section-desc'> Tasks you add will appear here </h1>
+        : null
+      }
+      {
+        todo.length
+        ? null
+        : (
+          <div className='task-section-desc'>
+            <h1> Tasks you add will appear here </h1>
+          </div>
+        )
       }
       </div>
 

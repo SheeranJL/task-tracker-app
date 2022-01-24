@@ -9,6 +9,7 @@ const SignUp = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmedPassword, setConfirmedPassword] = useState('')
+  const [regError, setRegError] = useState(false)
 
   const handleChange = (e) => {
     if (e.target.name === 'displayName') {
@@ -25,7 +26,7 @@ const SignUp = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     if (password !== confirmedPassword || displayName === '' || email === '') {
-      alert('please enter all the fields and make sure passwords match');
+      setRegError(true);
     }
 
     try {
@@ -35,6 +36,7 @@ const SignUp = () => {
       setEmail('');
       setPassword('');
       setConfirmedPassword('');
+      setRegError(false)
     } catch(err) {
       console.log('error creating account', err)
     }
@@ -63,6 +65,12 @@ const SignUp = () => {
         <input onChange={handleChange} type='password' name='confirmedPassword' value={confirmedPassword}/>
 
         <CustomButton type='submit' className='sign-up-button'>Sign up!</CustomButton>
+
+        {
+          regError
+          ? <span style={{color:'red', fontWeight:'bold', textAlign: 'center', marginTop:'20px'}}> Please ensure all fields are entered correctly </span>
+          : null
+        }
 
       </form>
 

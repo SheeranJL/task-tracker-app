@@ -1,14 +1,25 @@
-.to-do-section-container {
-  overflow-y: scroll;
+.todo-section-container {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .navigation-container {
+    width: 100%;
+    border-bottom: 1.9px solid grey;;
 
 
-  .navigation {
-    margin-left: 10%;
-    height: 80px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    .navigation {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-left: 10%;
+      margin-right: 10%;
+
+      button {
+        margin-right: auto;
+      }
+    }
+
 
     span {
       cursor: pointer;
@@ -54,7 +65,11 @@
   }
 
   .each-to-do-container {
-    background-color: white;
+    overflow-y: scroll;
+    height: 90%;
+    flex-grow: 1;
+    margin: auto;
+    width: 100%;
 
     .task-section-desc {
       color: grey;

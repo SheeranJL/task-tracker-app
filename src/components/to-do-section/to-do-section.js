@@ -38,19 +38,17 @@ const ToDoSection = () => {
   }
 
 
-
-
-
-
   return (
-    <div className='to-do-section-container'>
+    <div className='todo-section-container'>
 
-      <div className='navigation'>
-        <button className='add-task-button' onClick={() => actions.setToggleModal(!toggleModal)}>NEW TASK</button>
-        <span onClick={handleChangeCategory} className={filterQuery === 'ALL' ? 'selected-option all' : 'all'}>ALL</span>
-        <span onClick={handleChangeCategory} className={filterQuery === 'ACTIVE' ? 'selected-option active' : 'active'}>ACTIVE</span>
-        <span onClick={handleChangeCategory} className={filterQuery === 'COMPLETED' ? 'selected-option completed' : 'completed'}>COMPLETED</span>
-        <span onClick={handleChangeCategory} className={filterQuery === 'PRIORITY' ? 'selected-option priority' : 'priority'}>PRIORITY</span>
+      <div className='navigation-container'>
+        <div className='navigation'>
+          <button className='add-task-button' onClick={() => actions.setToggleModal(!toggleModal)}>NEW TASK</button>
+          <span onClick={handleChangeCategory} className={filterQuery === 'ALL' ? 'selected-option all' : 'all'}>ALL</span>
+          <span onClick={handleChangeCategory} className={filterQuery === 'ACTIVE' ? 'selected-option active' : 'active'}>ACTIVE</span>
+          <span onClick={handleChangeCategory} className={filterQuery === 'COMPLETED' ? 'selected-option completed' : 'completed'}>COMPLETED</span>
+          <span onClick={handleChangeCategory} className={filterQuery === 'PRIORITY' ? 'selected-option priority' : 'priority'}>PRIORITY</span>
+        </div>
       </div>
 
       <div className='each-to-do-container'>

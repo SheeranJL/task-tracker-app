@@ -69,7 +69,7 @@ const Profile = () => {
           <span>completed</span>
         </div>
 
-        <div className='completed-info'>
+        <div className='completed-info' style={{marginBottom: '30px'}}>
           <span className={ priorityCount > 0 ? 'info-stat priority' : 'info-stat green'}>{todo ? priorityCount : 0}</span>
           <span>Priority</span>
         </div>

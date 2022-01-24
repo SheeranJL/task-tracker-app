@@ -21,7 +21,9 @@ const HomePage = () => {
 
           <ProfileInfo />
         </div>
+
       <div className='main-page'>
+
           <div className='header'>
             <Header />
           </div>
@@ -32,7 +34,9 @@ const HomePage = () => {
             : null
           }
 
-          <ToDoSection />
+          <div className='to-do-section-container'>
+            <ToDoSection />
+          </div>
       </div>
     </div>
   )
